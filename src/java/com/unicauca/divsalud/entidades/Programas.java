@@ -47,6 +47,9 @@ public class Programas implements Serializable {
     @Size(max = 100)
     @Column(name = "NOMBRE")
     private String nombre;
+    @Size(min = 1, max = 2)
+    @Column(name = "estado")
+    private Integer estado;
     @OneToMany(mappedBy = "programa")
     private Collection<Paciente> pacienteCollection;
     @JoinColumn(name = "FACULTAD", referencedColumnName = "ID")
@@ -91,6 +94,14 @@ public class Programas implements Serializable {
 
     public void setFacultad(Facultad facultad) {
         this.facultad = facultad;
+    }
+
+    public Integer getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Integer estado) {
+        this.estado = estado;
     }
 
     @Override
