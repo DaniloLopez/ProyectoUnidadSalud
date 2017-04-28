@@ -21,13 +21,33 @@ public class CargarVistaSeretariaController implements Serializable {
    }
    
    public CargarVistaSeretariaController() {
-      
+      this.ruta = "/usuariodelsistema/secretaria/inicio/opciones.xhtml";
    }
-   
-   public void cargarGestionarUsuarios(){
-        this.ruta = "/usuariodelsistema/secretaria/usuariosSistema/List.xhtml";
+   public void cargarInicio(){
+       this.ruta = "/usuariodelsistema/secretaria/inicio/opciones.xhtml";
    }
    public void cargarPerfilUsuario() {
         this.ruta = "/usuariodelsistema/perfilUsuario.xhtml";
+    }
+   /*Ruta para la gestión de usuarios*/
+   public void cargarGestionarUsuarios(){
+        this.ruta = "/usuariodelsistema/secretaria/usuariosSistema/List.xhtml";
+   }
+   /*Rutas para la gestión de pacientes*/
+   public void cargarRegistrarPaciente() {
+        this.ruta = "/usuariodelsistema/profesionalsalud/enComun/paciente/Create.xhtml";
+    }
+    public void cargarEditarPaciente() {
+        this.ruta = "/usuariodelsistema/profesionalsalud/enComun/paciente/Edit.xhtml";
+    }
+    public void cargarVerPaciente() {
+        this.ruta = "/usuariodelsistema/profesionalsalud/enComun/paciente/View.xhtml";
+    }
+    /*Rutas para gestionar recursos*/
+    public void cargarRecursos(){
+       this.ruta = "/usuariodelsistema/secretaria/inicio/recursos_inicio.xhtml";
+    }
+    public void cargarEps(){
+       this.ruta = "/usuariodelsistema/secretaria/eps/List.xhtml";
     }
 }

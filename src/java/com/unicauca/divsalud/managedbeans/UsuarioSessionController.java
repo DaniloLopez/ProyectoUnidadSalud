@@ -1,6 +1,8 @@
 package com.unicauca.divsalud.managedbeans;
 
+import com.unicauca.divsalud.entidades.UsuariosSistema;
 import com.unicauca.divsalud.sessionbeans.GrupoUsuarioTipoFacade;
+import com.unicauca.divsalud.sessionbeans.UsuariosSistemaFacade;
 import com.unicauca.divsalud.utilidades.Utilidades;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -26,6 +28,7 @@ public class UsuarioSessionController implements Serializable {
 
     @EJB
     private GrupoUsuarioTipoFacade ejbUsuarioTipo;
+    private UsuariosSistemaFacade ejbUsuarios;
 
     private String nombreDeUsuario;
     private String contrasenia;
@@ -33,10 +36,19 @@ public class UsuarioSessionController implements Serializable {
     private String identificacion;
     private boolean haySesion;
     private boolean errorSesion;
+    private UsuariosSistema actual;
 
     public UsuarioSessionController() {
-
     }
+
+    public UsuariosSistema getActual() {
+        return actual;
+    }
+
+    public void setActual(UsuariosSistema actual) {
+        this.actual = actual;
+    }
+    
 
     public String getNombreDeUsuario() {
         return nombreDeUsuario;
@@ -87,18 +99,39 @@ public class UsuarioSessionController implements Serializable {
     }
 
     public void login() throws IOException, ServletException {
-        RequestContext requestContext = RequestContext.getCurrentInstance();
         FacesContext fc = FacesContext.getCurrentInstance();
+        /*try {
+            actual = ejbUsuarios.buscarPorNombreUsuarioYcontrasena(this.nombreDeUsuario, this.contrasenia);
+            if (actual != null) {
+                if (this.ejbUsuarioTipo.buscarPorNombreUsuario(actual.getLogin()).get(0).getGrupoUsuarioTipoPK().getIdTipo() == 9 || this.ejbUsuarioTipo.buscarPorNombreUsuario(actual.getLogin()).get(0).getGrupoUsuarioTipoPK().getIdTipo() == 12) {
+                    FacesContext.getCurrentInstance().getExternalContext().redirect("/divisionsalud/faces/usuario/principal.xhtml");
+                    identificacion = this.ejbUsuarioTipo.buscarPorNombreUsuario(actual.getLogin()).get(0).getUsuariosSistema().getIdentificacion();
+                    this.nombreMostrar = this.ejbUsuarioTipo.buscarPorNombreUsuario(actual.getLogin()).get(0).getUsuariosSistema().getNombres();
+                } else if (this.ejbUsuarioTipo.buscarPorNombreUsuario(actual.getLogin()).get(0).getGrupoUsuarioTipoPK().getIdTipo() == 8){
+                    FacesContext.getCurrentInstance().getExternalContext().redirect("/divisionsalud/faces/secretaria/principal.xhtml");
+                    identificacion = this.ejbUsuarioTipo.buscarPorNombreUsuario(actual.getLogin()).get(0).getUsuariosSistema().getIdentificacion();
+                    this.nombreMostrar = this.ejbUsuarioTipo.buscarPorNombreUsuario(actual.getLogin()).get(0).getUsuariosSistema().getNombres();
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("No pasa nada"+nombreDeUsuario+" ,"+contrasenia);
+        }*/
+            
+        RequestContext requestContext = RequestContext.getCurrentInstance();
         HttpServletRequest req = (HttpServletRequest) fc.getExternalContext().getRequest();
 
         if (req.getUserPrincipal() == null) {
             try {
                 req.login(this.nombreDeUsuario, this.contrasenia);
+                actual = this.ejbUsuarioTipo.buscarPorNombreUsuario(req.getUserPrincipal().getName()).get(0).getUsuariosSistema();
                 req.getServletContext().log("Autenticacion exitosa");
                 this.haySesion = true; 
                 this.errorSesion = false;
 
-                if (this.ejbUsuarioTipo.buscarPorNombreUsuario(req.getUserPrincipal().getName()).get(0).getGrupoUsuarioTipoPK().getIdTipo() == 9 || this.ejbUsuarioTipo.buscarPorNombreUsuario(req.getUserPrincipal().getName()).get(0).getGrupoUsuarioTipoPK().getIdTipo() == 12) {
+                if (this.ejbUsuarioTipo.buscarPorNombreUsuario(req.getUserPrincipal().getName()).get(0).getGrupoUsuarioTipoPK().getIdTipo() == 9 || 
+                    this.ejbUsuarioTipo.buscarPorNombreUsuario(req.getUserPrincipal().getName()).get(0).getGrupoUsuarioTipoPK().getIdTipo() == 12|| 
+                    this.ejbUsuarioTipo.buscarPorNombreUsuario(req.getUserPrincipal().getName()).get(0).getGrupoUsuarioTipoPK().getIdTipo() == 1) {
+                    
                     FacesContext.getCurrentInstance().getExternalContext().redirect("/divisionsalud/faces/usuario/principal.xhtml");
                     identificacion = this.ejbUsuarioTipo.buscarPorNombreUsuario(req.getUserPrincipal().getName()).get(0).getUsuariosSistema().getIdentificacion();
                     this.nombreMostrar = this.ejbUsuarioTipo.buscarPorNombreUsuario(req.getUserPrincipal().getName()).get(0).getUsuariosSistema().getNombres();
@@ -111,6 +144,18 @@ public class UsuarioSessionController implements Serializable {
 
                 this.errorSesion = true;
 
+            }
+        }else{
+            if (this.ejbUsuarioTipo.buscarPorNombreUsuario(req.getUserPrincipal().getName()).get(0).getGrupoUsuarioTipoPK().getIdTipo() == 9 || 
+                    this.ejbUsuarioTipo.buscarPorNombreUsuario(req.getUserPrincipal().getName()).get(0).getGrupoUsuarioTipoPK().getIdTipo() == 12|| 
+                    this.ejbUsuarioTipo.buscarPorNombreUsuario(req.getUserPrincipal().getName()).get(0).getGrupoUsuarioTipoPK().getIdTipo() == 1) {
+                FacesContext.getCurrentInstance().getExternalContext().redirect("/divisionsalud/faces/usuario/principal.xhtml");
+                identificacion = this.ejbUsuarioTipo.buscarPorNombreUsuario(req.getUserPrincipal().getName()).get(0).getUsuariosSistema().getIdentificacion();
+                this.nombreMostrar = this.ejbUsuarioTipo.buscarPorNombreUsuario(req.getUserPrincipal().getName()).get(0).getUsuariosSistema().getNombres();
+            } else if (this.ejbUsuarioTipo.buscarPorNombreUsuario(req.getUserPrincipal().getName()).get(0).getGrupoUsuarioTipoPK().getIdTipo() == 8){
+                FacesContext.getCurrentInstance().getExternalContext().redirect("/divisionsalud/faces/secretaria/principal.xhtml");
+                identificacion = this.ejbUsuarioTipo.buscarPorNombreUsuario(req.getUserPrincipal().getName()).get(0).getUsuariosSistema().getIdentificacion();
+                this.nombreMostrar = this.ejbUsuarioTipo.buscarPorNombreUsuario(req.getUserPrincipal().getName()).get(0).getUsuariosSistema().getNombres();
             }
         }
 

@@ -47,6 +47,7 @@
             <description>gestion de la informacion de las tablas</description>
             <url-pattern>/faces/usuariodelsistema/secretaria/*</url-pattern>
             <url-pattern>/faces/secretaria/*</url-pattern>
+            <url-pattern>/faces/usuariodelsistema/profesionalsalud/*</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <description>usuario secretaria</description>

@@ -6,14 +6,21 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <!--<link href="../resources/css/styles-menu.css" rel="stylesheet" type="text/css"/>-->
+       <script src="https://use.fontawesome.com/47275c2aa8.js"></script>
+      <h:outputStylesheet name="./css/default.css"/>
     </h:head>
     <h:body>
         <div id="contenidoMenu">
             <h:form id="formMenu">
                 <p:menubar>
-                    <p:submenu label="usuario">
-                            <p:menuitem value="Gestion de usuarios" action="#{cargarVistaSecretariaController.cargarGestionarUsuarios()}" ajax="false"/>
+                    <p:menuitem value="Inicio" action="#{cargarVistaSecretariaController.cargarInicio()}" ajax="false"/>
+                    <p:submenu label="Gestión de pacientes">
+                        <p:menuitem value="Registrar paciente" action="#{cargarVistaSecretariaController.cargarRegistrarPaciente()}" ajax="false"/>
+                        <p:menuitem value="Editar paciente" action="#{cargarVistaSecretariaController.cargarEditarPaciente()}" ajax="false"/>
+                        <p:menuitem value="Ver información de paciente" action="#{cargarVistaSecretariaController.cargarVerPaciente()}" ajax="false"/>
                     </p:submenu>
+                    <p:menuitem value="Gestión de usuarios" action="#{cargarVistaSecretariaController.cargarGestionarUsuarios()}" ajax="false"/>
+                    <p:menuitem value="Gestión de recursos" action="#{cargarVistaSecretariaController.cargarRecursos()}" ajax="false"/>
                     
                 </p:menubar>
             </h:form>
