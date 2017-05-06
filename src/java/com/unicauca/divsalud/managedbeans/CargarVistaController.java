@@ -21,7 +21,10 @@ public class CargarVistaController implements Serializable {
     }
 
     public CargarVistaController() {
-
+        this.ruta = "/usuariodelsistema/profesionalsalud/medicina/opciones.xhtml";
+    }
+    public void cargarInicio(){
+        this.ruta = "/usuariodelsistema/profesionalsalud/medicina/opciones.xhtml";
     }
 
     public void cargarRegistrarPaciente() {
@@ -47,6 +50,9 @@ public class CargarVistaController implements Serializable {
 
     public void cargarIndiceCOP() {
         this.ruta = "/usuariodelsistema/profesionalsalud/odontologia/estadisticas/indiceCOP.xhtml";
+    }
+    public void cargarGestionarAgenda() {
+        this.ruta = "/usuariodelsistema/profesionalsalud/enComun/citaMedicaMed/Agend.xhtml";
     }
 
 

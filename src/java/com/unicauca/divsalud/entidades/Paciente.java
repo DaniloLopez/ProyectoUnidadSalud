@@ -469,7 +469,7 @@ public class Paciente implements Serializable {
 
     @Override
     public String toString() {
-        return "com.unicauca.divsalud.entidades.Paciente[ id=" + id + " ]";
+        return nombre1+" "+nombre2;
     }
 
     @XmlTransient

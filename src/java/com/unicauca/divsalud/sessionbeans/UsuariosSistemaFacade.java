@@ -37,6 +37,12 @@ public class UsuariosSistemaFacade extends AbstractFacade<UsuariosSistema> {
         List<UsuariosSistema> resultList = query.getResultList();
         return resultList;
     }
+    public List<UsuariosSistema> buscarPorId(String id) {
+        Query query = getEntityManager().createNamedQuery("UsuariosSistema.findById");
+        query.setParameter("id", id);
+        List<UsuariosSistema> resultList = query.getResultList();
+        return resultList;
+    }
 
     public boolean buscarPorEmail(String login) {
         Query query = getEntityManager().createNamedQuery("UsuariosSistema.findByLogin");

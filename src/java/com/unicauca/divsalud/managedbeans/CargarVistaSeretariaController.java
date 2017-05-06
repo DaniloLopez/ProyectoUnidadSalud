@@ -34,6 +34,9 @@ public class CargarVistaSeretariaController implements Serializable {
         this.ruta = "/usuariodelsistema/secretaria/usuariosSistema/List.xhtml";
    }
    /*Rutas para la gestión de pacientes*/
+   public void cargarListaPacientes() {
+        this.ruta = "/usuariodelsistema/profesionalsalud/enComun/paciente/List.xhtml";
+    }
    public void cargarRegistrarPaciente() {
         this.ruta = "/usuariodelsistema/profesionalsalud/enComun/paciente/Create.xhtml";
     }
@@ -49,5 +52,9 @@ public class CargarVistaSeretariaController implements Serializable {
     }
     public void cargarEps(){
        this.ruta = "/usuariodelsistema/secretaria/eps/List.xhtml";
+    }
+    /*Rutas para la gestión de citas*/
+   public void cargarGestionarCitas() {
+        this.ruta = "/usuariodelsistema/profesionalsalud/enComun/citaMedicaMed/List.xhtml";
     }
 }

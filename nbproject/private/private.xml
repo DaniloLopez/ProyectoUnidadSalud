@@ -3,17 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Personal/Documents/NetBeansProjects/ProyectoUnidadSalud/src/java/com/unicauca/divsalud/managedbeans/CargarVistaController.java</file>
-            <file>file:/C:/Users/Personal/Documents/NetBeansProjects/ProyectoUnidadSalud/web/usuario/menu.xhtml</file>
-            <file>file:/C:/Users/Personal/Documents/NetBeansProjects/ProyectoUnidadSalud/web/usuariodelsistema/secretaria/inicio/recursos_inicio.xhtml</file>
-            <file>file:/C:/Users/Personal/Documents/NetBeansProjects/ProyectoUnidadSalud/web/usuariodelsistema/profesionalsalud/enComun/paciente/Create.xhtml</file>
-            <file>file:/C:/Users/Personal/Documents/NetBeansProjects/ProyectoUnidadSalud/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/Personal/Documents/NetBeansProjects/ProyectoUnidadSalud/web/secretaria/menu.xhtml</file>
-            <file>file:/C:/Users/Personal/Documents/NetBeansProjects/ProyectoUnidadSalud/web/secretaria/content.xhtml</file>
-            <file>file:/C:/Users/Personal/Documents/NetBeansProjects/ProyectoUnidadSalud/src/java/com/unicauca/divsalud/managedbeans/CargarVistaSeretariaController.java</file>
-            <file>file:/C:/Users/Personal/Documents/NetBeansProjects/ProyectoUnidadSalud/web/usuariodelsistema/profesionalsalud/enComun/paciente/Edit.xhtml</file>
-            <file>file:/C:/Users/Personal/Documents/NetBeansProjects/ProyectoUnidadSalud/web/template.xhtml</file>
-            <file>file:/C:/Users/Personal/Documents/NetBeansProjects/ProyectoUnidadSalud/web/usuariodelsistema/secretaria/inicio/opciones.xhtml</file>
+            <file>file:/C:/Users/Personal/Documents/NetBeansProjects/DivisionSalud/web/usuariodelsistema/profesionalsalud/enComun/citaMedicaMed/List.xhtml</file>
+            <file>file:/C:/Users/Personal/Documents/NetBeansProjects/DivisionSalud/src/java/com/unicauca/divsalud/entidades/UsuariosSistema.java</file>
+            <file>file:/C:/Users/Personal/Documents/NetBeansProjects/DivisionSalud/src/java/com/unicauca/divsalud/managedbeans/CitaMedicaMedController.java</file>
+            <file>file:/C:/Users/Personal/Documents/NetBeansProjects/DivisionSalud/src/java/com/unicauca/divsalud/sessionbeans/UsuariosSistemaFacade.java</file>
+            <file>file:/C:/Users/Personal/Documents/NetBeansProjects/DivisionSalud/web/usuariodelsistema/profesionalsalud/enComun/paciente/Create.xhtml</file>
         </group>
     </open-files>
 </project-private>

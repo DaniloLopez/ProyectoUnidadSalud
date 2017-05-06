@@ -106,7 +106,7 @@ public class TipoUsuario implements Serializable {
 
     @Override
     public String toString() {
-        return "com.unicauca.divsalud.entidades.TipoUsuario[ id=" + id + " ]";
+        return nombre;
     }
 
     @XmlTransient

@@ -109,7 +109,7 @@ public class TipoCitaMed implements Serializable {
 
     @Override
     public String toString() {
-        return "entidades.TipoCitaMed[ id=" + id + " ]";
+        return nombre;
     }
     
 }

@@ -1545,6 +1545,9 @@ insert into `parentesco`(`ID`,`NOMBRE`) values (8,'OTROS MIEMBROS PARIENTES');
 insert into `parentesco`(`ID`,`NOMBRE`) values (9,'CABEZA DEL GRUPO FAMILIAR');
 insert into `parentesco`(`ID`,`NOMBRE`) values (10,'OTRO - NO FAMILIAR');
 
+INSERT INTO `tipo_cita_med`(`ID`, `NOMBRE`) VALUES ('1','Primera vez');
+INSERT INTO `tipo_cita_med`(`ID`, `NOMBRE`) VALUES ('2','Control');
+INSERT INTO `tipo_cita_med`(`ID`, `NOMBRE`) VALUES ('3','Revisión examenes');
 insert into `programas`(`ID`,`NOMBRE`,`FACULTAD`, `estado`) values (1,'Administración de Empresas',4, 0);
 insert into `programas`(`ID`,`NOMBRE`,`FACULTAD`, `estado`) values (2,'Antropología',5, 0);
 insert into `programas`(`ID`,`NOMBRE`,`FACULTAD`, `estado`) values (3,'Artes Plásticas',1, 0);

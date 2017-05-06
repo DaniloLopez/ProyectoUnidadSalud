@@ -240,7 +240,7 @@ public class UsuariosSistema implements Serializable {
 
     @Override
     public String toString() {
-        return "com.unicauca.divsalud.entidades.UsuariosSistema[ id=" + id + " ]";
+        return nombres;
     }
 
     @XmlTransient

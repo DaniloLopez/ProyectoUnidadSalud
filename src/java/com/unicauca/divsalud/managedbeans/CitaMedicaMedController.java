@@ -1,11 +1,17 @@
 package com.unicauca.divsalud.managedbeans;
 
 import com.unicauca.divsalud.entidades.CitaMedicaMed;
+import com.unicauca.divsalud.entidades.UsuariosSistema;
 import com.unicauca.divsalud.managedbeans.util.JsfUtil;
 import com.unicauca.divsalud.managedbeans.util.JsfUtil.PersistAction;
 import com.unicauca.divsalud.sessionbeans.CitaMedicaMedFacade;
+import com.unicauca.divsalud.sessionbeans.PacienteFacade;
+import com.unicauca.divsalud.sessionbeans.TipoCitaMedFacade;
+import com.unicauca.divsalud.sessionbeans.UsuariosSistemaFacade;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -27,10 +33,14 @@ public class CitaMedicaMedController implements Serializable {
     private com.unicauca.divsalud.sessionbeans.CitaMedicaMedFacade ejbFacade;
     private List<CitaMedicaMed> items = null;
     private CitaMedicaMed selected;
-
+    private com.unicauca.divsalud.sessionbeans.UsuariosSistemaFacade ejbFacadeUsuarios;
+    private com.unicauca.divsalud.sessionbeans.PacienteFacade ejbFacadePaciente;
+    private com.unicauca.divsalud.sessionbeans.TipoCitaMedFacade ejbFacadeTipoCita;
+    
     public CitaMedicaMedController() {
+        this.selected = new CitaMedicaMed();
     }
-
+    
     public CitaMedicaMed getSelected() {
         return selected;
     }
@@ -56,10 +66,18 @@ public class CitaMedicaMedController implements Serializable {
     }
 
     public void create() {
+        selected.setEstado("espera");
         persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("CitaMedicaMedCreated"));
         if (!JsfUtil.isValidationFailed()) {
             items = null;    // Invalidate list of items to trigger re-query.
         }
+    }
+    public void atender(){
+        selected.setEstado("atendida");
+        //Date now = new Date(System.currentTimeMillis());
+        //SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
+        //selected.setHoraInicio(now);
+        persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("CitaMedicaMedUpdated"));
     }
 
     public void update() {
